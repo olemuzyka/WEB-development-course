@@ -6,6 +6,7 @@
                 if (!isNaN(parseInt(year))) {
                     if (year >= minYear && year <= maxYear) {
                         return  Math.ceil(year / 100);
+                    }
                 }
                 return error;
             }
