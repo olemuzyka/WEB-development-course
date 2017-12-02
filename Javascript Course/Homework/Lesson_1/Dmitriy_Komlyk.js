@@ -1,5 +1,6 @@
 function years(num) {
-  if(num>=1&&num<=2017){
+  var todayYear = new Date().getFullYear()
+  if(num>=1&&num<=todayYear){
    var result = Math.ceil(num/100);
     return result; 
   }
