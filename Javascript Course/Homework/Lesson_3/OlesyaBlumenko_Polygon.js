@@ -1,7 +1,7 @@
 function polygon (n){
 
 
-  return Math.trunc( n*n*1.45);
+  return (n*n) +((n-1)*(n-1));
 
   console.log(n);
 
