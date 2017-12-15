@@ -1,10 +1,18 @@
-function mas(n){
-  function compare(a,b){
-    return a-b;
+function mas(a,n){
+a.splice(n,1) ;
+for (var i=0;i<a.length;i++){
+  if ((a[i+1]-a[i])<0){
+    return false;
   }
-  n.sort(compare);
-  return (n[n.length-1]-n[0])-(n.length-1);
+  else{
+    if (i===a.length-1){
+      return true;
+    }
+    else{
+      continue;
+    }
+  }
 }
-
-var a=[6,2,3,8];
-mas(a);
+}
+var a=[1,3,4,1];
+mas(a,2);
