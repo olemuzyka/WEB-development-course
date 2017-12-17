@@ -1,10 +1,10 @@
-function list(n){
-var reg = /(<h2.*?><\/\S>(.*?)<\/h2?>)/igm;
-var arr; 
-var result= '';
-while((arr=reg.exec(n))!== null){
-result += '<li>'+arr[2]+'</li>';
-} 
-return '<ul>'+result+'</ul>';
+function mas(n){
+  function compare(a,b){
+    return a-b;
+  }
+  n.sort(compare);
+  return (n[n.length-1]-n[0])-(n.length-1);
 }
-list(htmlContent);
+
+var a=[6,2,3,8];
+mas(a);
