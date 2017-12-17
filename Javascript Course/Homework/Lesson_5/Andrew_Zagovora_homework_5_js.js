@@ -1,18 +1,18 @@
-function arrDelGrow(n){
+function arrCheck(n) {
 
-	for (var k = 0; n.length > k; k++) {
-		n.splice(k,1);
-		if (arrCheck(n) == false) {
-			return false;
+	var arrCheck = [];
+
+	for (var i = 0; n.length - 1 > i; i++) {
+		if (n[i+1] > n[i]) {
+			continue;
+		} else {
+			arrCheck.push(1);
 		}
-	} return true;
-	
-	function arrCheck(n) {
-
-		for (var i = 0; n.length > i; i++) {
-			if (n[i+1] < n[i]) {
-				return false;
-			} 
-		} return true;
 	} 
+
+	if (arrCheck.length > 1){
+		return false;
+	} else {
+		return true;
+	}
 }
