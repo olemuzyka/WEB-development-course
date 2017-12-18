@@ -6,7 +6,7 @@ function getMissingDigits(array) {
 
   for (var i in sortedArray) {
     var num = sortedArray[i] - sortedArray[i-1];
-    if (i > 1 && sortedArray[i] !== 1) {
+    if (i > 0 && sortedArray[i] !== 1) {
       result += num - 1;
     }
   }
@@ -14,4 +14,4 @@ function getMissingDigits(array) {
   return result;
 }
 
-getMissingDigits([6, 1, 2, 3, 4]);
+getMissingDigits([6, 3]);
