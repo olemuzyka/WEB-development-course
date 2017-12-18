@@ -16,6 +16,7 @@ function Array(newArray){
      }
       i++;
   }
+  if(res.length <= sortArray.length-1) return 0;
   return res.length - sortArray.length;
 }
 Array([8, 2, 3, 6]);
