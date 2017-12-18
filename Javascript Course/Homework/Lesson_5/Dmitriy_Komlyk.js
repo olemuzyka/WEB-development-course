@@ -3,10 +3,10 @@ var result;
 var counter = 0;
 var removed;
 
- if(someArray.length-1<=2) counter = 1;
+ if(someArray.length<=1) return true;
     while(counter<=someArray.length-1){
        removed = someArray.splice(counter, 1);
-          for(var i = 0; i<someArray.length-1; i++){
+          for(var i = 0; i<=someArray.length-1; i++){
             if (removed[0]==someArray[i]) return false;
             else result = true;
           }
