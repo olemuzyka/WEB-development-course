@@ -2,7 +2,7 @@ function checkArray(array){
   
   for(var j=0; j<array.length; j++){
     if(array[j] >= array[j+1]){
-      array.splice(j, 1);
+      array.splice(j+1, 1);
       break;
     }
   }
