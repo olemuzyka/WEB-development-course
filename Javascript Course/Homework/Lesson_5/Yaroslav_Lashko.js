@@ -12,20 +12,15 @@ function ascendingArray(integerArr) {
   } else {
     return false;
   } // END check for integer array
-  var cloneArr = [];
-  for (var i in integerArr) {
-    for (var k in integerArr) {
-      cloneArr[k] = integerArr[k];
+  var biggerNumbers = 0,
+    smallerNumbers = 0;
+  for (var k = 0; k < integerArr.length - 1; k++) {
+    if (integerArr[k] >= integerArr[k + 1]) {
+      biggerNumbers++;
     }
-    cloneArr.splice(i, 1);
-    for (var j = 0, smallerNumbers = 0; j < cloneArr.length - 1; j++) {
-      if (cloneArr[j] < cloneArr[j + 1]) {
-        smallerNumbers++;
-      }
-    }
-    if (smallerNumbers == cloneArr.length - 1) {
-      return true;
+    if (k !== 0 && integerArr[k - 1] >= integerArr[k + 1]) {
+      smallerNumbers++;
     }
   }
-  return false;
+  return biggerNumbers <= 1 && smallerNumbers <=1 ? true : false;
 }
