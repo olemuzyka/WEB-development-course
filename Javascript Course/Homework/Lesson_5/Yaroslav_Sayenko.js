@@ -1,14 +1,18 @@
 function increase (arr) {
   var result = [];
-  for (var i =0; i < arr.length-1; i++) {
+  for (var i = 0; i < arr.length-1; i++) {
     if (arr[i] >= arr[i+1]) {
-      result.push(arr[i]);
+      if ((i !== 0 && arr[i-1] >= arr[i+1])) {
+        return false;
+      }
+      else {
+        result.push(arr[i+1]);
+      }
     }
   }
-  if (result.length >= 2 ) {
+  if (result.length > 1) {
     return false;
-  }
-  else {
-    return true
+  } else{
+    return true;
   }
 }
