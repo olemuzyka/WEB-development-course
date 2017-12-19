@@ -1,8 +1,6 @@
-var mass = [2,3,6,8,12];
-
 function getter(arr) {
-	var max = Math.max.apply(null,mass),
-	min = Math.min.apply(null,mass),
+	var max = Math.max.apply(null,arr),
+	min = Math.min.apply(null,arr),
 	fullArr = [],
 	rezult = 0;
 
