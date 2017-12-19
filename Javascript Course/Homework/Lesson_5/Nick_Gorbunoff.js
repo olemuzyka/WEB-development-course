@@ -13,9 +13,9 @@ function checkArray(array){
   }
   
   if (checkFirst.length <= 1 && checkSecond.length <= 1){
-    return false;
-  } else {
     return true;
+  } else {
+    return false;
   }
   
 }
