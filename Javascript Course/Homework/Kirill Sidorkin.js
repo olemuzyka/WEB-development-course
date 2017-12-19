@@ -1,5 +1,4 @@
-function mas(a,n){
-a.splice(n,1) ;
+function mas(a){
 for (var i=0;i<a.length;i++){
   if ((a[i+1]-a[i])<0){
     return false;
@@ -15,4 +14,5 @@ for (var i=0;i<a.length;i++){
 }
 }
 var a=[1,3,4,1];
-mas(a,2);
+a.splice(3,1) ;
+mas(a);
