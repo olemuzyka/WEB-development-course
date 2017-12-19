@@ -1,6 +1,6 @@
 function mas(a){
 for (var i=0;i<a.length;i++){
-  if ((a[i+1]-a[i])<0){
+  if ((a[i+1]-a[i])<0 || (a[i+1]-a[i])===0){
     return false;
   }
   else{
