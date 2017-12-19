@@ -7,7 +7,7 @@ function lost(n){
     for(var i=1; i< n.length; i++){
       
       
-     if(n[i+1]<n[i-1]){
+     if(n[i+1]<n[i-1]  || n[i+1]==n[i-1]){
        k = false;
      }
       
