@@ -10,7 +10,7 @@ function isGrowing(arr){
     newArray.splice(i, 1); 
     
     for (var j = 0; j < newArray.length; j++) { 
-      if (newArray[j] > newArray[j + 1] && j+1 != newArray.length ) { 
+      if (newArray[j] >= newArray[j + 1] && j+1 != newArray.length ) { 
         return false; 
       } 
     } 
