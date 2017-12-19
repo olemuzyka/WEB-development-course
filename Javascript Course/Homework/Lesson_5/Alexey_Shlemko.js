@@ -4,6 +4,7 @@ function isArraySortedWithoutOne(arr) {
   for (var i = 0; i < arr.length; i++) {
     var arr2 = arr.slice();
     delete arr2[i];
+    arr2 = arr2.filter(function(e){return e;});
     results.push(isArraySorted(arr2));
   }
   for (var j = 0; j < results.length; j++) {
@@ -14,7 +15,12 @@ function isArraySortedWithoutOne(arr) {
   return callback;
 
   function isArraySorted(arr) {
-    var arr2 = arr.slice().sort(function(a, b) {return a - b});
-    return arr.join('') == arr2.join('');
+    var sorted = true;
+    for (var i = 0; i < arr.length - 1; i++) {
+      if (arr[i] >= arr[i + 1]) {
+        sorted = false;
+      }
+    }
+    return sorted;
   }
 }
