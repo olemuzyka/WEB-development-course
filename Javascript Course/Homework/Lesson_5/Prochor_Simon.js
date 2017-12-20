@@ -1,24 +1,22 @@
 function isGrowing(arr){
-  for (var i = 0; i < arr.length; i++) { 
-    if ( checkCurent(i) ) { 
-      return true; 
+  var n1=0,
+      n2=0;
+  
+  for(var i=0; i<arr.length-1; i++){
+    if(arr[i] >= arr[i+1]){
+      n1++;
     } 
+    if(arr[i-1] >= arr[i+1]){
+      n2++;
+    }
   }
   
-  function checkCurent(index) {
-    var newArray = arr.slice(0);
-    newArray.splice(i, 1); 
-    
-    for (var j = 0; j < newArray.length; j++) { 
-      if (newArray[j] >= newArray[j + 1] && j+1 != newArray.length ) { 
-        return false; 
-      } 
-    } 
-    return true; 
+  if (n1 <= 1 && n2 <= 1){
+    return true;
+  } else {
+    return false;
   }
-    
-  return false; 
-} 
+}
 
-isGrowing( [1, 3, 2, 1] );
+isGrowing([1, 1, 2, 1, 3]);
 //isGrowing( [1, 3, 2] );
