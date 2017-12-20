@@ -5,13 +5,11 @@ function isArraySortedWithoutOne(arr) {
     var arr2 = arr.slice();
     delete arr2[i];
     arr2 = arr2.filter(function(e){return e;});
-    results.push(isArraySorted(arr2));
-  }
-  for (var j = 0; j < results.length; j++) {
-    if (results[j]) {
+    if (isArraySorted(arr2)) {
       callback = true;
     }
   }
+
   return callback;
 
   function isArraySorted(arr) {
