@@ -16,5 +16,4 @@ function winningTicket( ticket ) {
   
   return left == right;
 }
-
 winningTicket(302122);
