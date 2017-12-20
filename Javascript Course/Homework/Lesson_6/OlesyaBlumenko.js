@@ -1,5 +1,5 @@
-function luckyTicket(){
-var v = prompt("enter the number at 10 to 1000000");
+function luckyTicket(n){
+var v = n;
 var b= [];
 var k=[];
 var half = v.length/2;
@@ -25,12 +25,8 @@ b=b.reduce(adder);
 
  
 if(b===k){
-  console.log(b);
-  console.log(k);
   return  true;
 }else{
-  console.log(b);
-  console.log(k);
   return false
 }
 
@@ -41,4 +37,3 @@ if(b===k){
 }
 }
 
-luckyTicket();
