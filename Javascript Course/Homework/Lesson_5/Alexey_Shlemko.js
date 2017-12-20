@@ -7,6 +7,7 @@ function isArraySortedWithoutOne(arr) {
     arr2 = arr2.filter(function(e){return e;});
     if (isArraySorted(arr2)) {
       callback = true;
+      break;
     }
   }
 
