@@ -8,7 +8,6 @@ function countMissingNumbers( numArr ) {
 
 	for (let i = 0; i < numArr.length; i++) {
 	  	let dif = numArr[i+1] - numArr[i];
-console.log(dif);
 	  	if ( dif > 1) {
 	  		quantity += dif-1;
 		}
