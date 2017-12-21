@@ -1,5 +1,4 @@
-function luckyTicket(ticket)
-var result = null;
+function luckyTicket(ticket){
 var sum1 = 0;
 var sum2 = 0;
 var arr = String(ticket).split("");
@@ -12,12 +11,10 @@ var arr3 = arr.slice(-(arr.length+1)/2);
     sum2 = sum2 + (+arr3[j]); 
   }
   if(sum1==sum2){
-    result=true;
+    return true;
   }
   else{
-    result=false;
+    return false;
   }
-
-  return(result);
 }
 luckyTicket(123402) 
