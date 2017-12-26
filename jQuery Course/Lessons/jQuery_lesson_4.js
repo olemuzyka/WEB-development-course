@@ -226,19 +226,19 @@ $(document).ready(function() {
     // Advanced Validation
 
 
-    $('#signup').validate({
-        rules: {
-            username: 'required',
-            email: {
-                required:true,
-                email:true
-            },
-            birthdate: {
-                date:true,
-                required:true
-            }
-        }
-    });
+    // $('#signup').validate({
+    //     rules: {
+    //         username: 'required',
+    //         email: {
+    //             required:true,
+    //             email:true
+    //         },
+    //         birthdate: {
+    //             date:true,
+    //             required:true
+    //         }
+    //     }
+    // });
 
 
 // minlength. The field must contain at least the specified number of characters.
@@ -266,40 +266,50 @@ $(document).ready(function() {
     // Advanced error messages
 
 
-    $('#signup').validate({
-        rules: {
-            password: {
-                required:true,
-                rangelength:[8,16]
-            },
-            confirm_password: {
-                equalTo:'#password'
-            }
-        }, // end of rules
-        messages: {
-            password: {
-                required: "Please type the password you'd like to use.",
-                rangelength: "Your password must be between 8 and 16 characters long."
-            },
-            confirm_password: {
-                equalTo: "The two passwords don't match."
-            }
-        } // end of messages
-    }); // end validate()
+    // $('#signup').validate({
+    //     rules: {
+    //         password: {
+    //             required:true,
+    //             rangelength:[8,16]
+    //         },
+    //         confirm_password: {
+    //             equalTo:'#password'
+    //         }
+    //     }, // end of rules
+    //     messages: {
+    //         password: {
+    //             required: "Please type the password you'd like to use.",
+    //             rangelength: "Your password must be between 8 and 16 characters long."
+    //         },
+    //         confirm_password: {
+    //             equalTo: "The two passwords don't match."
+    //         }
+    //     } // end of messages
+    // }); // end validate()
 
 
     // Custom rule creation
-    jQuery.validator.addMethod("greaterThanZero", function(value, element) {
-            return this.optional(element) || (parseFloat(value) > 0);
-    },
-        
-    $('validatorElement').validate({
-        rules : {
-            amount : { greaterThanZero : true }
-        }
+    // jQuery.validator.addMethod("greaterThanZero", function(value, element) {
+    //         return this.optional(element) || (parseFloat(value) > 0);
+    // });
+    //
+    // $('validatorElement').validate({
+    //     rules : {
+    //         amount : { greaterThanZero : true }
+    //     }
+    // });
+
+
+    // Validating with the Server
+
+    $('#signup').validate({
+        rules: {
+            username: {
+                required: true,
+                remote: 'assets/check_username.php'
+            }
+        },
     });
-
-
 
 
 
