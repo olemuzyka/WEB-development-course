@@ -8,7 +8,7 @@ function sumElement(matrix) {
             if (matrix[i].length >= 1 && matrix[i].length <= 5) {
                 for (var j = 0; j < matrix[i].length; j++) {
                     if (matrix[i][j] >= 0 && matrix[i][j] <= 10) {
-                        if (i > 1) {
+                        if (i > 0) {
                             if (matrix[i-1][j] == 0) {
                                 matrix[i][j] = 0;
                             }
