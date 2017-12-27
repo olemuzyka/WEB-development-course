@@ -7,6 +7,7 @@ function filterArray(Array, index){
 }
  
 for(var i=0; i< someString.length; i++){
+    if(someString.length<=1) result = someString
     if(someString[i].length > biggestArray.length){
         biggestArray = someString[i];
         result = someString.filter(filterArray);
