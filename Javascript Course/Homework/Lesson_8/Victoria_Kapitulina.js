@@ -9,6 +9,10 @@ function longestString(arr) {
       str.push(arr[i]);
     }
   }
-  return str;
+  if(arr.length>1) {
+   return str;
+   } else {
+     return arr;
+   }
 }
 longestString(arr);
