@@ -18,5 +18,5 @@ function same(a,b){
   }
   return sum;
 }
-var a = "aabcc",b = "adbccccaaa";
+var a = "aabcc",b = "adcaa";
 same(a,b);
