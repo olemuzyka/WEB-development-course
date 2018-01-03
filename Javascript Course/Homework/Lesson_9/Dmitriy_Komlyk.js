@@ -15,14 +15,12 @@ if( !(re.test(string1)&&re.test(string2))){
   string2.split('').map(function(e){
     stringObj2[e] = !stringObj2[e]?1:stringObj2[e]+1;
   });
-  
-  var counter = 0; 
+ 
   for (var key in stringObj1) {
    if(stringObj1.hasOwnProperty(key)&&stringObj2.hasOwnProperty(key)){
         if(stringObj1[key]>stringObj2[key]) result += stringObj2[key]
         else result += stringObj1[key]
    }
-      counter++;
 }
   return result;
  }
