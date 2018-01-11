@@ -1,18 +1,18 @@
 function isArraysSimilar(array1, array2) {
-  var counter = 0;
-  var nessesarySwitches = 0;
+  var differences = [];
   for (var i = 0; i < array1.length; i++) {
     if (array1[i] != array2[i]) {
-      if ((array1[i] == array2[i + 1]) & (array1[i + 1] == array2[i])) {
-        nessesarySwitches++;
-        i++;
-      } else {
-        counter++;
-      }
+      differences.push([array1[i], array2[i]]);
     }
   }
-  if ((counter === 0) & (nessesarySwitches <= 1)) {
+  if (differences.length === 0) {
     return true;
+  } else if (differences.length === 2) {
+    if (differences[0][1] == differences[1][0]) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
