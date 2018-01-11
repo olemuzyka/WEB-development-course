@@ -7,8 +7,8 @@ function similar(a, b) {
   if (str1 == str2) {
     return true
   }
-  var sort1 = a.sort();
-  var sort2 = b.sort();
+  var sort1 = a.slice(0).sort();
+  var sort2 = b.slice(0).sort();
   var str3 = sort1.join('');
   var str4 = sort2.join('');
   if (str3 != str4) {
@@ -20,7 +20,7 @@ function similar(a, b) {
       arr1.push(b[i]);
     }
   }
-  if (arr1.length > 1) {
+  if (arr1.length > 2) {
     return false
   }
   return true
