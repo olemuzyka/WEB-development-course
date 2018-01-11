@@ -12,6 +12,9 @@ function sameArray(a, b){
     }
     if(a[i]===a[i+1] || b[i]===b[i+1]) {
       c.push('');
+    }
+    if(b.indexOf(a[i]) == -1){
+      c.push('');
     } 
      
   }
