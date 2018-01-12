@@ -11,4 +11,5 @@ function check_arr(ar1, ar2) {
     ar1[ar_new[1].index] = ar_new[0].element;
     return array_check(ar1, ar2);
   }
+  return false;
 }
