@@ -21,8 +21,3 @@ function sameArr(a, b) {
 	}
 	
 }
-
-var a = [-1, 2, 3, -4];
-var b = [-1, 2, -4, 3];
-
-alert(sameArr(a, b));
