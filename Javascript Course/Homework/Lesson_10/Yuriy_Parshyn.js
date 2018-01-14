@@ -2,25 +2,24 @@
 // var b = [832, 570, 148, 998, 533, 561, 455, 147, 894, 279];
 var a = [4,6,3];
 var b = [3,4,6];
-function compareArr(a,b) {
-  var flag = false;
+function compareArr(a, b) {
   if (a.length != b.length) {
     return false;
   }
+  var count = 0;
+  var c = [];
   for (var i = 0; i < a.length; i++) {
     if (a[i] != b[i]) {
-      if (!flag) {
-        for (var j = i + 1; j < b.length; j++) {
-          if (a[i] == b[j]) {
-            [b[i], b[j]] = [b[j], b[i]];
-          }
-        }
-      } else {
+      c.push(b.indexOf(b[i]));
+      count++;
+      if (count > 2) {
         return false;
       }
-      flag = true;
+      if (count == 2) {
+        [b[c[0]], b[c[1]] ] = [ b[c[1]], b[c[0]]];
+      }
     }
   }
   return true;
 }
-console.log(compareArr(a,b));
+console.log(compareArr(a, b));
