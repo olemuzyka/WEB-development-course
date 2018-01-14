@@ -16,6 +16,7 @@ function test(v, i){return v===array2Sort[i]}
     if(array1Sort.every(test)) return true;
     return false;
   }
+  if(differences==1) return false;
   if(differences>2) return false;
 return true;
 }
