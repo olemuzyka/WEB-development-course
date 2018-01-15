@@ -5,6 +5,9 @@
 var a = [1, 4, 2, 5, 3, 7, 4, 8, 4, 2, 25];
 var b = [1, 4, 2, 5, 3, 3, 7, 8, 4, 2, 25];
 function compareArr(a,b) {
+  if (a.length != b.length) {
+    return false;
+  }
   var count = 0;
   var flag = false;
   for (var i = 0; i < a.length; i++) {
