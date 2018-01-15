@@ -18,6 +18,8 @@ function isSimilarArrays(a, b) {
   if (revPos.length == 2) {
     if (a[revPos[0]] == b[revPos[1]] && a[revPos[1]] == b[revPos[0]]) {
       return true;
+    } else {
+      return false;
     }
   }
 }
