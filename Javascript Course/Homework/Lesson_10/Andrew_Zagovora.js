@@ -4,20 +4,34 @@ function sameArr(a, b) {
 		return false;
 	}
 
-	var c = [];
-	for (var i = 0; i < a.length; i++) {		
-		var res = a[i] - b[i];
-		if (res != 0) {
-			c.push(res);
-		}	
+	var aTest = [];
+	var bTest = [];
+
+	for (var i = 0; i < a.length; i++) {
+		if (a[i] - b[i] != 0) {
+			aTest.push(a[i]);
+			bTest.push(b[i]);
+		}
 	}
 
-	if (c.length == 0) {
-		return true;
-	} else if (c.length != 2) {
+	if (aTest.length != 2 && bTest.length != 2) {
 		return false;
-	} else if (c[0] + c[1] == 0) {
-		return true;
 	}
-	
+
+	aTest.sort();
+	bTest.sort();
+
+	var check = 0
+
+	for (i = 0; i < aTest.length; i++) {
+		if (aTest[i] - bTest[i] != 0) {
+			check += 1;
+		}
+	}
+
+	if (check == 0) {
+		return true;
+	} else {
+		return false;
+	}
 }
