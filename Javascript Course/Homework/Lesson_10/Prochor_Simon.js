@@ -20,7 +20,11 @@ function isSame(arr1, arr2) {
           return false;
         }
       } else if(odds===1) {
-        if( i == passIndex && arr1[i] != arr2[changedIndex] ) {
+        if( i == passIndex ) {
+          if(arr1[i] != arr2[changedIndex]) {
+            return false;
+          }
+        }else {
           return false;
         }
       }else if( odds>1 ) {
