@@ -235,3 +235,207 @@ let double = (n) => {
 // let highScores = points.filter(n => n>15);
 
 // console.log(highScores);
+
+
+// String Helper Methods
+
+// String.repeat()
+
+// let b = "wooh" + "oo".repeat(50);
+// let b = "wooh" + " ".repeat(50) + "oo";
+// console.log(b)
+
+// The search methods for strings include .startsWith, .endsWith, .includes
+// console.log("butterfly".startsWith("butter")); // true
+// console.log("butterfly".startsWith("fly")); // false
+// console.log("butterfly".endsWith("fly")); // true
+// console.log("butterfly".includes("butter")); // true
+
+// console.log("butterfly".includes("caterpillar")); // false
+// console.log("butterfly".includes("ter")); // true
+
+
+// Checking Numbers
+
+// Number.isFinite
+
+
+// const addToCart = (item, number) => {
+//     return Number.isFinite(number);
+// }
+
+// console.log(addToCart('shirt', 5)); // true
+// console.log(addToCart('shirt', Infinity)); // false
+
+// console.log(addToCart('shirt', "Infinity")); //false
+// console.log(addToCart('shirt', Math.pow(2, 54))); //true
+
+
+// Number.isSafeInteger
+
+// -Math.pow(2, 53) - 1) - Math.pow(2, 53) - 1)  // safe
+
+
+
+// Modules
+
+// import { fellowship } from './fellowship.js'
+
+// import { fellowship, total } from './fellowship.js'
+//
+// console.log(fellowship);
+// console.log(total);
+
+// import { add, multiply} from "./math";
+//
+// console.log('add', add(5, 10));
+// console.log('multiply', multiply(5, 10));
+
+// import multiply from './math';
+// console.log('multiply', multiply(5, 10));
+
+
+
+// OOP & Classes
+
+/*
+class Animal {
+    constructor(name, height) {
+        this.name = name;
+        this.height = height;
+    }
+
+    hello() {
+        console.log(`Hi! I'm ${this.name} from the Animal kingdom!`);
+    }
+}
+
+let king = new Animal("Mufasa", 4.5);
+console.log(king);
+console.log(king.hello());
+*/
+
+
+
+// Inheritance
+
+import Animal from './Animal'
+//
+// class Lion extends Animal {
+//
+// }
+// let son  = new Lion("Simba", 2)
+//
+//
+// console.log(son);
+// console.log(son.hello());
+
+/*class Lion extends Animal {
+    constructor(name, height, color) {
+        super(name, height)
+        this.color = color;
+    }
+
+    hello() {
+        console.log(`Hi! I'm ${this.name} from Pride Rock!`);
+    }
+}
+
+let son = new Lion("Simba", 2, "golden");
+console.log(son);
+console.log(son.hello());*/
+
+
+// Static methods
+/*
+
+class Calculator {
+    static multiply(a, b) {
+        return a*b;
+    }
+
+    static add(a, b) {
+        return a+b;
+    }
+}
+
+let a = Calculator.multiply(5,7);
+console.log(a);
+*/
+
+
+// ProtoTypes
+/*
+
+function Wizard(name, house, pet) {
+    this.name = name;
+    this.house = house;
+    this.pet = pet;
+    this.greet = () => `I'm ${this.name} from ${this.house}`;
+}
+
+let harry = new Wizard("Harry Potter", "Gryffindor", "Owl");
+
+
+
+
+Wizard.prototype.pet_name;
+Wizard.prototype.info;
+harry.pet_name = "Hedwig";
+harry.info = function () {
+    return `I have a ${this.pet} named ${this.pet_name}.`;
+}
+
+
+console.log(harry);
+console.log(harry.info());
+
+*/
+
+// Presenting Data Structures in ES6
+
+
+// Set
+/*
+
+let a = new Set();
+
+a.add(5);
+a.add(43);
+a.add("woohoo");
+a.add({ x: 50, y: 200 });
+
+a.add(43);
+a.add({ x: 50, y: 200 });
+
+console.log(a);
+console.log(a.size);
+
+console.log(a.has(5)); // true
+console.log(a.has(7)); // false
+
+*/
+
+/*
+
+let numbers = [5, 7, 8, 13, 17];
+
+let numSet = new Set(numbers);
+
+
+console.log(numSet);
+
+for (let element of numSet.values()) {
+    console.log(element);
+}
+*/
+
+let chars = "aweifawjeoanehmwofeuawhfhwuei";
+let chars_arr = chars.split("");
+let chars_set = new Set(chars_arr);
+
+
+console.log(chars_set)
+
+
+
