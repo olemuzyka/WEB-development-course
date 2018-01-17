@@ -14,7 +14,9 @@ function sameArr(a, b) {
 		}
 	}
 
-	if (aTest.length != 2 && bTest.length != 2) {
+	if (aTest.length == 0 || bTest.length == 0) {
+		return true;
+	} else if (aTest.length != 2 && bTest.length != 2) {
 		return false;
 	}
 
