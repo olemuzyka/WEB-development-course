@@ -1,19 +1,19 @@
 function similar(a , b){
-  
-  function compare(a, b) {
-  if (a > b) return 1;
-  if (a < b) return -1;
+   var n = 0;
+  for (var i = 0; i < a.length; i++){
+  if(a[i] !== b[i]){
+  for (var j = i; j < b.length; j++){
+        if(a[i] ===  b[j] || a[j] === b[i]){
+            n++;
+            
+        }
+            
   }
-  
-  a = a.sort(compare);
-  b = b.sort(compare);
-  a = a.join(',');
-  b = b.join(',');
-  
-  if(a === b){
-    return true;
-  }else{
+}
+}
+  if(n>1){
     return false;
+  }else{
+    return true;
   }
-  console.log(a , b);
 }
