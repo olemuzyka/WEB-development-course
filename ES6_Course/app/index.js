@@ -430,12 +430,387 @@ for (let element of numSet.values()) {
 }
 */
 
-let chars = "aweifawjeoanehmwofeuawhfhwuei";
-let chars_arr = chars.split("");
-let chars_set = new Set(chars_arr);
+// let chars = "aweifawjeoanehmwofeuawhfhwuei";
+// let chars_arr = chars.split("");
+// let chars_set = new Set(chars_arr);
+//
+//
+// console.log(chars_set)
 
 
-console.log(chars_set)
+// Maps
+
+/*
+
+let a = new Map();
+
+let key_1 = 'string key';
+a.set(key_1, 'return value for a string key')
+
+
+let key_2 = { a: 'key '};
+a.set(key_2, 'return value for a object key')
+
+
+let key_3 = function() {};
+a.set(key_3, 'return value for a function');
+
+
+console.log(a);*/
+
+/*
+
+let twoDee = [[1, 'one'], [2, 'two'], [3, 'three']];
+
+let valMap = new Map(twoDee);
+
+// console.log(valMap);
+
+for (let [key, value] of valMap.entries()) {
+    console.log(`${key} => ${value}`);
+}
+*/
+
+/*
+let string = "eowiuraowehpamennoawponeienuaperunaewopinu";
+let letters = new Map();
+for (let i=0; i<string.length; i++) {
+    let letter = string[i];
+    if(letters.has(letter) === false){
+        letters.set(letter, 1);
+    }
+    else {
+        letters.set(letter, letters.get(letter)+1);
+    }
+}
+
+console.log(letters);
+
+*/
+
+
+
+// Closures and Scoping
+
+/*
+
+let call = () => {
+    let secret = 'ES6 rocks';
+}
+console.log(secret); // error
+
+*/
+
+/*
+
+let call = () => {
+    let secret = 'ES6 rocks';
+    let reveal = () => {
+        console.log(secret);
+    }
+    return reveal;
+}
+
+let unveil = call();
+unveil();
+*/
+
+
+
+
+// Function Factories
+/*
+
+const addSuffix = (x) => {
+    const concat = (y) => {
+        return y + x;
+    }
+    return concat;
+}
+
+
+let add_ness = addSuffix("ness");
+let h = add_ness("happi");
+
+
+console.log(h)
+*/
+
+/*
+const product = (x) => {
+    return y => {
+        return x * y;
+    }
+};*/
+
+/*
+
+
+const product = (x) => y => x * y;
+
+let mult5 = product(5);
+console.log(mult5(3));
+
+let double = product(2);
+console.log(double(3));
+
+*/
+
+
+// Private Methods
+/*
+
+
+const budget = () => {
+    let balance = 0;
+    const changeBal = (val) => {
+        return balance += val;
+    }
+
+    const deposit20 = () => changeBal(20);
+
+    const withdraw20 = () => changeBal(-20);
+
+    const check = () => balance;
+
+    return {
+        deposit20, // deposit20: deposit20,
+        check,
+        withdraw20
+    };
+};
+
+let wallet = budget();
+
+console.log(wallet.check());
+
+wallet.deposit20();
+wallet.withdraw20();
+
+wallet.deposit20();
+wallet.deposit20();
+wallet.deposit20();
+wallet.deposit20();
+
+console.log(wallet.check());
+
+*/
+
+
+// Generators
+
+/*
+function* letterMaker() {
+
+    yield 'a';
+    yield 'b';
+    yield 'c';
+
+}
+
+let letterGen = letterMaker();
+
+
+console.log(letterGen.next().value);
+console.log(letterGen.next().value);
+console.log(letterGen.next().value);
+console.log(letterGen.next().value);
+*/
+
+/*
+
+
+function* evens() {
+    let count = 0;
+    while(true) {
+        count += 2;
+        yield count;
+    }
+}
+
+let sequence = evens();
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+
+*/
+/*
+
+
+function* evens() {
+    let count = 0;
+    while(true) {
+        count += 2;
+        let reset = yield count;
+        if (reset) {
+            count = 0;
+        }
+    }
+}
+
+let sequence = evens();
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next(true).value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+
+*/
+
+// Generators vs Iterators
+
+/*
+
+const arrayIterator = (array) => {
+    let index = 0;
+
+    return {
+        next: () => {
+            if (index < array.length) {
+                let next = array[index];
+                index += 1;
+                return next;
+            }
+        }
+    }
+}
+
+
+let it = arrayIterator([1, 2, 3]);
+
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+*/
+
+/*
+
+function* arrayIterator() {
+    // yield arguments;
+    /!*for (let arg of arguments){
+        yield arg;
+    }*!/
+    yield* arguments
+}
+
+
+var array = [1, 2, 3];
+let it = arrayIterator(...array);
+
+console.log(it.next().value);
+console.log(it.next().value);
+*/
+
+
+
+// Asynchronous Programming and Promises
+
+/*
+
+function onFulfilled() {
+    console.log('success')
+}
+
+function onRejected() {
+    console.log('fail')
+}
+*/
+
+/*
+
+let promise = new Promise(function(resolve, reject) {
+    // Эта функция будет вызвана автоматически
+
+    // В ней можно делать любые асинхронные операции,
+    // А когда они завершатся — нужно вызвать одно из:
+    // resolve(результат) при успешном выполнении
+    // reject(ошибка) при ошибке
+    // resolve('success');
+    //reject()
+
+    // throw new Error("o_O");
+})
+*/
+
+/*
+
+
+promise.then(onFulfilled, onRejected);
+
+promise.then(onFulfilled); //success
+promise.then(null, onRejected); // fail
+
+promise.catch(onRejected);
+*/
+
+/*
+
+let p = new Promise((resolve, reject) => {
+    // resolve('Resolved promise data');
+    reject('Rejected promise data');
+});
+
+p.then(response => console.log(response))
+.catch(error => console.log(error));
+
+*/
+/*
+
+let p = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Resolved promise data'), 3000);
+});
+
+p.then(response => console.log(response))
+    .catch(error => console.log(error));
+
+
+*/
+
+/*
+
+let promise = new Promise((resolve, reject) => {
+
+    // через 1 секунду готов результат: result
+    setTimeout(() => resolve("result"), 1000);
+
+    // через 2 секунды — reject с ошибкой, он будет проигнорирован
+    setTimeout(() => reject(new Error("ignored")), 2000);
+
+});
+
+promise
+    .then(
+        result => alert("Fulfilled: " + result), // сработает
+        error => alert("Rejected: " + error) // не сработает
+    );
+
+*/
+
+
+// APIs and ES6 Fetch
+
+/*
+const root = 'https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699';
+
+fetch(root, {
+    method: 'GET'
+})
+    .then(response => {
+        return response.json();
+    })
+    .then(json => console.log(json));
+
+
+
+*/
+
+
+
+
+
+
 
 
 
