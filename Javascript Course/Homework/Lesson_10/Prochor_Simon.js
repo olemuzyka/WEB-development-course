@@ -1,9 +1,12 @@
-var arr1 = [1,2,3,4,5,6],
-    arr2 = [1,4,3,2,5,6];
+var arr1 = [1, 1, 4],
+    arr2 = [1, 2, 3];
           
     function isSame(arr1, arr2) {
       function findIndex(i) {
           passIndex = arr2.indexOf(arr1[i], i + 1);
+          if(passIndex < 0){
+            return false;
+          }
           if( arr1[passIndex] === arr2[passIndex]) {
               return findIndex(passIndex);
           } else {
