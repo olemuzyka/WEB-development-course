@@ -1,27 +1,25 @@
 var path = require('path');
 
 module.exports = {
-
-    entry: ["babel-polyfill","./app/index.js"],
+   entry: './src/script.js',
     output: {
-        path: path.resolve(__dirname, './build'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js'
     },
     module: {
         loaders: [
             {
-                loader: 'babel-loader',
+                loader: "babel-loader",
                 test: /\.js?/,
-                exclude: /node_modules/
-
+                exclude:/node_modules/
             }
         ]
     },
     devServer: {
         port: 3000,
-        contentBase: './build',
+        contentBase: './dist',
         inline: true
     }
 
 
-}
+};
