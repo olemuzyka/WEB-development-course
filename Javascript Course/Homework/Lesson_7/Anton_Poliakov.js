@@ -1,6 +1,6 @@
-matrix = [[0, 1, 1, 2],
-          [0, 5, 0, 0],
-          [2, 0, 3, 3]];
+matrix = [[1, 1, 1, 0],
+          [0, 5, 0, 1],
+          [2, 1, 3, 10]];
 
 function getHousePrice(matrix) {
   if (matrix >= 5) {
@@ -14,7 +14,7 @@ function getHousePrice(matrix) {
     }
 
     for (var j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] >= 10) {
+      if (matrix[i][j] > 10) {
         return false;
       }
 
