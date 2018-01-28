@@ -155,11 +155,11 @@ class Cart {
 
     changeCart ( thumbnail, title ) {
         this.counter++;
-        this.elements[this.elements.length] = {
+        this.elements.push( {
             thumbnail,
             title,
             'time': new Date().toLocaleTimeString('en-US')
-        };
+        });
 
         this.counterHtml.innerHTML = this.counter;
     }
