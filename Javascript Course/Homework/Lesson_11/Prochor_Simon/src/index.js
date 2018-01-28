@@ -144,23 +144,22 @@ class Cart {
     }
 
     removeOrder ( i ) {
-        console.log( i );
         this.elements.splice(i, 1);
         this.counter--;
         this.counterHtml.innerHTML = this.counter;
 
-        if( this.elements.length == 0) {
+        if( this.counter == 0) {
             this.popupCart.close();
         }
     }
 
     changeCart ( thumbnail, title ) {
         this.counter++;
-        this.elements.push( {
+        this.elements[this.elements.length] = {
             thumbnail,
             title,
             'time': new Date().toLocaleTimeString('en-US')
-        });
+        };
 
         this.counterHtml.innerHTML = this.counter;
     }
@@ -169,12 +168,12 @@ class Cart {
         this.btn.addEventListener('click', (e) => {
             e.preventDefault();
 
+            let html ='';
+
             if( this.elements.length == 0) {
-                this.popupCart.setContent(`
-                    <h2>Your cart is empty</h2>
-                `);
+                html = "<h2>Your cart is empty</h2>";
             } else {
-                let html = '<div class="row">';
+                html = '<div class="row">';
                 this.elements.forEach(function(v, i, a){
                     html += `
                         <div class="col-4" data-id="${i}">
@@ -185,7 +184,7 @@ class Cart {
                                   <p class="card-text"><small>Add in ${v.time}</small></p>
                                 </div>
                                 <div class="card-footer bg-transparent">
-                                    <a href="#" data-id="${i}" class="btn btn-danger">Remove</a>
+                                    <a href="#" class="btn btn-danger">Remove</a>
                                 </div>
                             </div>
                           </div>
@@ -194,22 +193,21 @@ class Cart {
                 });
                 html += '</div>';
 
-                this.popupCart.setContent( html );
-
-                let removeBtn = this.popupCart.modalBoxContent.getElementsByClassName('btn-danger');
-
-                for(let i = 0; i<removeBtn.length; i++){
-                    removeBtn[i].addEventListener('click', (e) => {
-                        e.preventDefault();
-                        let id = removeBtn[i].getAttribute('data-id');
-                        this.removeOrder ( id );
-                        this.popupCart.modalBoxContent.querySelector(`.col-4[data-id="${id}"]`).remove();
-                    });
-                };
-
             }
 
+            this.popupCart.setContent( html );
+
             this.popupCart.open();
+
+            let removeBtn = this.popupCart.modalBoxContent.getElementsByClassName('btn-danger');
+
+            for(let i = 0; i<removeBtn.length; i++){
+                removeBtn[i].addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.removeOrder ( i );
+                    this.popupCart.modalBoxContent.querySelector(`.col-4[data-id="${i}"]`).remove();
+                });
+            };
 
 
 
