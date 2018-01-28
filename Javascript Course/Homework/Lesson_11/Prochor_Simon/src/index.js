@@ -41,7 +41,7 @@ class SearchForm {
               thumbnail = data.volumeInfo.imageLinks.thumbnail ? data.volumeInfo.imageLinks.thumbnail : 'http://customerengagement.asia/Blog/img/no_img.png';
 
         let newDiv = document.createElement("div");
-            newDiv.classList = this.templataItem.classList
+            newDiv.classList = this.templataItem.classList;
             newDiv.innerHTML = this.templataItem.innerHTML;
 
         newDiv.querySelector('.card-title').innerHTML = title;
@@ -88,7 +88,7 @@ class SearchForm {
                     </div>
                   </div>
                 </form>
-            `);
+        `);
 
         popup.open();
         let popupForm = popup.modalBoxFooter.querySelector('.tingle-modal-box__footer form');
@@ -150,6 +150,8 @@ class Cart {
 
         if( this.counter == 0) {
             this.popupCart.close();
+        } else {
+            this.generateContent();
         }
     }
 
@@ -164,19 +166,17 @@ class Cart {
         this.counterHtml.innerHTML = this.counter;
     }
 
-    action () {
-        this.btn.addEventListener('click', (e) => {
-            e.preventDefault();
+    generateContent() {
+        let html ='';
 
-            let html ='';
-
-            if( this.elements.length == 0) {
-                html = "<h2>Your cart is empty</h2>";
-            } else {
-                html = '<div class="row">';
-                this.elements.forEach(function(v, i, a){
-                    html += `
-                        <div class="col-4" data-id="${i}">
+        if( this.elements.length == 0) {
+            html = "<h2>Your cart is empty</h2>";
+        } else {
+            console.log(this.elements);
+            html = '<div class="row">';
+            this.elements.forEach(function(v, i, a){
+                html += `
+                        <div class="col-4">
                           <div class="card bg-dark text-white"><img class="card-img" src="${v.thumbnail}" alt="${v.title}">
                             <div class="card-img-overlay">
                                 <div class="card-body">
@@ -190,26 +190,30 @@ class Cart {
                           </div>
                         </div>
                 `;
-                });
-                html += '</div>';
+            });
+            html += '</div>';
 
-            }
+        }
 
-            this.popupCart.setContent( html );
+        this.popupCart.setContent( html );
+
+        let removeBtn = this.popupCart.modalBoxContent.getElementsByClassName('btn-danger');
+
+        for(let i = 0; i<removeBtn.length; i++){
+            removeBtn[i].addEventListener('click', (e) => {
+                e.preventDefault();
+                this.removeOrder ( i );
+            });
+        };
+    }
+
+    action () {
+        this.btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            this.generateContent();
 
             this.popupCart.open();
-
-            let removeBtn = this.popupCart.modalBoxContent.getElementsByClassName('btn-danger');
-
-            for(let i = 0; i<removeBtn.length; i++){
-                removeBtn[i].addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.removeOrder ( i );
-                    this.popupCart.modalBoxContent.querySelector(`.col-4[data-id="${i}"]`).remove();
-                });
-            };
-
-
 
         });
     }
