@@ -2,3 +2,6 @@
     Thumbs.db
     .git
 node_modules/
+bundle.js
+.idea/
+package-lock.json
