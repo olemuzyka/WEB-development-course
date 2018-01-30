@@ -108,6 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // console.log(inputsCollection[i].getAttribute("name"));
                 validationObj[inputsCollection[i].getAttribute("name")](inputsCollection[i]);
             }
+
+            if (!target.closest('.buy-pop-up').getElementsByClassName('error-message').length) {git
+                target.closest('.pop-up').innerHTML = `
+                    <div class="close">X</div>
+                    <div>Data was sent successfuly!!!</div>
+                `
+            }
         }
 
         if ( target.tagName.toUpperCase() == 'INPUT' ) {
