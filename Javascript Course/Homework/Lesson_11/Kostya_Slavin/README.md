@@ -9,6 +9,7 @@
 npm install
 
 # run json server and serve with hot reload
+# serve with hot reload at localhost:8080 and json server
 npm run ser
 
 # build for production with minification
