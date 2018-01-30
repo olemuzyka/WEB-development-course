@@ -1,7 +1,4 @@
-var x = prompt("Введите год","");
-if (x<1 || x>2017 || x.charAt(0)==="0"){
-	alert("Год введён неверно");
+function mas(n){
+	return Math.ceil((Math.pow(n+(n-1),2))/2);
 }
-else{
-	alert("Это " + Math.ceil(Number(x)/100) + "-й век");
-}
+mas(3);
