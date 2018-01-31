@@ -1,6 +1,8 @@
 .DS_Store
-    Thumbs.db
-    .git
+Thumbs.db
+.git
 node_modules/
 bundle.js
-.idea/
+.idea
+.package-lock.json
+
