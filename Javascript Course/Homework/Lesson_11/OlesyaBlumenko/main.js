@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 $('#form').submit(function(){
-
+  $('#booksInfo').empty();
   var search = $('#search').val();
   $.getJSON( "https://www.googleapis.com/books/v1/volumes?q=" + search,
          function (data) {
@@ -34,7 +34,7 @@ $('#form').submit(function(){
 
                   });
                  });
-                 
+
                  $("#buy").validate({
                    rules:{
                      name:{
@@ -73,9 +73,5 @@ $('#form').submit(function(){
            });
 
 });
-
-$('#search').on('focus',function(){
-  $('#booksInfo').empty();
-})
 
 });
