@@ -1,10 +1,9 @@
-var path = require('path');
+let path = require('path');
 
 module.exports = {
-
-    entry: ["babel-polyfill","./app/index.js"],
+    entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, './build'),
+        path: path.resolve(__dirname, './App','./js'),
         filename: 'bundle.js'
     },
     module: {
@@ -13,15 +12,12 @@ module.exports = {
                 loader: 'babel-loader',
                 test: /\.js?/,
                 exclude: /node_modules/
-
             }
         ]
     },
     devServer: {
-        port: 3000,
-        contentBase: './build',
+        port: 3001,
+        contentBase: './App',
         inline: true
     }
-
-
-}
+};

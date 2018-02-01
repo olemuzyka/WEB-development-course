@@ -13,7 +13,6 @@ module.exports = {
                 loader: 'babel-loader',
                 test: /\.js?/,
                 exclude: /node_modules/
-
             }
         ]
     },
@@ -22,6 +21,4 @@ module.exports = {
         contentBase: './build',
         inline: true
     }
-
-
-}
+};
