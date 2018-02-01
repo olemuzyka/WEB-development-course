@@ -1,9 +1,6 @@
 <template>
 <v-flex xs6 md2 >
   <v-card d-inline-flex style="margin: 10px;">
-    <!--<v-card-media>-->
-      <!--<v-card-media contain :src="book.volumeInfo.imageLinks.smallThumbnail"></v-card-media>-->
-    <!--</v-card-media>-->
     <v-card-media
         class="white--text"
         height="200px"
@@ -23,11 +20,10 @@
           </span>
         </div>
         <div>
-          <p>{{ getDate(book.volumeInfo.publishedDate) }}</p>
+          <p style="font-style: italic;">{{ getDate(book.volumeInfo.publishedDate) }}</p>
         </div>
       </div>
     </v-card-title>
-    <!--<v-card-actions>-->
       <div class="text-xs-right">
       <v-btn
               flat
@@ -36,7 +32,6 @@
               slot="activator"
       >Order</v-btn>
       </div>
-    <!--</v-card-actions>-->
   </v-card>
 </v-flex>
 </template>
@@ -58,9 +53,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  p {
-    font-style: italic;
-  }
-</style>

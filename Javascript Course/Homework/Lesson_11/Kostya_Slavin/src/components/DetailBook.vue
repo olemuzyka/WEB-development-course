@@ -5,7 +5,7 @@
       <v-list>
         <v-list-tile>
           <v-list-tile-avatar>
-            <img v-bind:src="order.book.volumeInfo.imageLinks.smallThumbnail"/>
+            <img :src="order.book.volumeInfo.imageLinks.smallThumbnail"/>
           </v-list-tile-avatar>
           <v-list-tile-content>
             <v-list-tile-title>{{ order.book.volumeInfo.title }}</v-list-tile-title>

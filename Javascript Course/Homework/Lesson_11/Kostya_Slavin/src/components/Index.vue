@@ -6,7 +6,7 @@
 
             <v-layout row wrap>
                 <v-toolbar v-if="orders.length" flat style="margin: 10px 0;">
-                    <v-toolbar-title class="grey--text text--darken-4">Order's</v-toolbar-title>
+                    <v-toolbar-title class="grey--text text--darken-4">Orders</v-toolbar-title>
                     <v-spacer></v-spacer>
                 </v-toolbar>
                 <app-detail-book
