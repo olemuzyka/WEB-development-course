@@ -31,7 +31,6 @@ export const orderValidate = {
             const errors = []
             if (!this.$v.phone.$dirty) return errors
             !this.$v.phone.required && errors.push('Number is required')
-            !this.$v.phone.phoneValidator && errors.push('Valid format +380671234567')
             return errors
         },
         checkboxErrors () {
@@ -79,7 +78,6 @@ export const orderValidate = {
         },
         phone: {
             required,
-            phoneValidator
         },
         checkbox: {
             required

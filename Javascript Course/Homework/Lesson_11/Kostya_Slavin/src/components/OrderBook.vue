@@ -12,7 +12,6 @@
             >
               <v-container></v-container>
             </v-card-media>
-            <!-- <img :src="book.volumeInfo.imageLinks.smallThumbnail" alt=""> -->
           </v-flex>
           <v-flex xs8 align-end flexbox>
             <p>{{ book.volumeInfo.description }}</p>
@@ -55,6 +54,7 @@
                               required
                               v-model.trim="phone"
                               :error-messages="phoneErrors"
+                              @keypress="inputRow($event)"
                               @input="$v.phone.$touch()"
                               @blur="$v.phone.$touch()"
                 ></v-text-field>
@@ -123,7 +123,18 @@ import { orderValidate } from '../shared/mixins/order-validate'
           this.$store.commit('changeDialogStatus')
         }
       }
+    },
+    methods: {
+      inputRow(event) {
+        let txt = String.fromCharCode(event.which);
+        if (!txt.match(/[0-9.]/)) {
+            this._snackBar.message({ message: 'Only digits' });
+          return false;
+        } else {
+          var x = event.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,1})/);
+          event.target.value = !x[2] ? x[1] : '+380(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '') + (x[4] ? '-' + x[4] : '');
+        }
+      }
     }
   }
 </script>
-

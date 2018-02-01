@@ -1,5 +1,5 @@
 <template>
-    <v-flex xs4 >
+    <v-flex xs4>
       <v-card-text>
         <v-container fluid>
           <v-layout row>
