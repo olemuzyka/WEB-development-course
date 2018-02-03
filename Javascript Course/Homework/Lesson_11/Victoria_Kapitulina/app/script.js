@@ -23,7 +23,7 @@ $(document).ready(() => {
           img           = bookProp.imageLinks.smallThumbnail,
           description   = bookProp.description,
           authors       = bookProp.authors,
-          publishedDate = new Intl.DateTimeFormat('uk-Ua').format(new Date(bookProp.publishedDate)),
+          publishedDate = new Intl.DateTimeFormat('uk-UA').format(new Date(bookProp.publishedDate)),
           bookItem      = `<div class="book-item">
                               <div class="item-img">
                                 <img src="${img}">
