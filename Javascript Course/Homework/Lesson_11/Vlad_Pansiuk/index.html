@@ -103,23 +103,26 @@
                 results.innerHTML += "<h2>" + title + "</h2>"
                 results.innerHTML += "<p>" + authors + "</p>"
                 results.innerHTML += "<p>" + publishedDate + "</p>"
-                results.innerHTML += "<button id='" + id + "' type='button''>" + "Заказать" + "</button><br></div>"
-                     
+                results.innerHTML += "<button id='" + i + "' type='button''>" + "Заказать" + "</button><br></div>"
+              }
+
+
                 $("#results button").on('click', function() {
                     $(".hidden").css("display", "block");
-                  document.getElementById("bookOrder").innerHTML = ""
-                   
-                   
-                   bookOrder.innerHTML += "<img src='" + imgLinks + "'/>"
-                   bookOrder.innerHTML += "<p>" + description + "</p>"
 
-                   
-                   orders.innerHTML += "<h2>" + title + "</h2>"
-                   orders.innerHTML += "<img src='" + imgLinks + "'/>"
-                    
-                  })
-                
-              }
+                    var index = $(this).attr('id'),
+                        dataItems = data.items[index].volumeInfo;
+                    document.getElementById("bookOrder").innerHTML = ""
+
+
+                    bookOrder.innerHTML += "<img src='" + dataItems.imageLinks.smallThumbnail + "'/>"
+                    bookOrder.innerHTML += "<p>" + data.items[index].volumeInfo.description + "</p>"
+
+
+                    orders.innerHTML += "<h2>" + dataItems.title + "</h2>"
+                    orders.innerHTML += "<img src='" + dataItems.imageLinks.smallThumbnail + "'/>"
+
+                })
 
             },
 
