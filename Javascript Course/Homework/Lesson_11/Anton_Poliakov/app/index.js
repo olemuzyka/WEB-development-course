@@ -11,8 +11,8 @@ $(document).ready(function() {
 
   const api = 'https://www.googleapis.com/books/v1/volumes';
   let $items      = $('#items'),
-      makeOrder   = $('#make-order'),
-      sendButton  = $('#send-button');
+      $makeOrder   = $('#make-order'),
+      $sendButton  = $('#send-button');
 
   $('#search').on('submit', function(event) {
     event.preventDefault();
@@ -57,7 +57,7 @@ $(document).ready(function() {
   }
 
   function addToCart(data) {
-    makeOrder.on('submit', function(event) {
+    $makeOrder.on('submit', function(event) {
       event.preventDefault();
       $('#order-modal').modal('hide');
 
@@ -70,11 +70,11 @@ $(document).ready(function() {
       );
     });
 
-    makeOrder.on('keyup blur', function() {
-      if (makeOrder.valid()) {
-        sendButton.prop('disabled', false);
+    $makeOrder.on('keyup blur', function() {
+      if ($makeOrder.valid()) {
+        $sendButton.prop('disabled', false);
       } else {
-        sendButton.prop('disabled', true);
+        $sendButton.prop('disabled', true);
       }
     });
   }
@@ -98,7 +98,7 @@ $(document).ready(function() {
     }
   });
 
-  makeOrder.validate({
+  $makeOrder.validate({
     onsubmit: true,
     rules: {
       required: true,
