@@ -1,4 +1,8 @@
 var path = require('path');
+var webpack = require('webpack');
+
+const SassPlugin = require('sass-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -8,16 +12,32 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [
-            {
-                loader: 'babel-loader',
-                test: /\.js?/,
-                exclude: /node_modules/
-            }
+        rules: [
+          {
+              test: /\.js?/,
+              exclude: /(node_modules|bower_components)/,
+              use: { loader: 'babel-loader' }
+          },
+          {   test: /\.css$/,
+              use: [ 'css-loader']
+          }
         ]
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new SassPlugin('./app/style.scss',{
+            sass: { outputStyle: 'compressed' }
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            "Tether": 'tether',
+            "window.Tether": 'tether'
+        })
+    ],
     devServer: {
-        port: 3000,
+        port: 3001,
         contentBase: './build',
         inline: true
     }
