@@ -34,9 +34,53 @@ firebaseApp.auth().onAuthStateChanged(function (user) {
 });
 
 
+import { toggle } from "./mixins/toggle";
+
+/*
+
+//modal
+const Modal = {
+    template: '#modal',
+    mixins: [toggle],
+    components: {
+        appChild: Child
+    }
+}
+
+//tooltip
+const Tooltip = {
+    template: '#tooltip',
+    mixins: [toggle],
+    components: {
+        appChild: Child
+    }
+}
+
+*/
+
+
+Vue.mixin({
+    mounted() {
+        console.log('hello from global mixin!')
+    }
+})
+
+
+
+
+
 new Vue({
     el: '#app',
     render: h => h(App),
     router,
-    store
+    store,
+    mixins: [toggle],
+    methods: {
+        sayHello: function() {
+            console.log('hello')
+        }
+    },
+    mounted() {
+        this.sayHello()
+    }
 })

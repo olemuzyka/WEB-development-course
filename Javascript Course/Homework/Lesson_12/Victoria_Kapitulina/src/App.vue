@@ -12,14 +12,14 @@
       <Order 
         v-for = "order in $store.state.orders"
         :order="order"
-        key="index" /> 
+        :key="index" />
         </div>
       <div id="bookShell">
         <div class="book-item" v-for = "(book, index) in $store.state.books">
           <Book 
             :book = "book"
             :index = "index"
-            key = "index"
+            :key = "index"
           />
         </div>
       </div>
