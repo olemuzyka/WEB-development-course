@@ -9,8 +9,8 @@ export const initBooks = ({commit}) => {
     .then(json=>commit(types.INIT_BOOKS, json.items))
 }
 
-export const initOrder = ({commit}, ...order) =>{
+export const initOrder = ({commit}, order) =>{
 
-  commit(types.INIT_ORDER, ...order);
+  commit(types.INIT_ORDER, order);
 
 }

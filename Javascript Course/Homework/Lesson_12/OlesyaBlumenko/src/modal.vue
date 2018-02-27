@@ -10,7 +10,7 @@ class="" action="#">
       <input type="text" name="name" v-model="order.name"
       v-validate =" 'required|min:2' ">
 
-      <spanv-show = "errors.has('name')">{{errors.first('name')}}</span>
+      <span v-show= "errors.has('name')">{{errors.first('name')}}</span>
       <p>Email:</p>
       <input type="email" name="email"  v-model="order.email"
        v-validate="'required|email'">
@@ -22,7 +22,7 @@ class="" action="#">
       v-validate =" 'required|min:10|max:13' " >
 
       <span v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
-      <input type="submit" @click = "initOrder" value="Отправить">
+      <input type="submit" @click = "createOrder" value="Отправить">
 
 </form>
 
@@ -57,12 +57,16 @@ export default {
       this.$validator.validateAll().then((res)=>{
         if(res){
           this.order.image = this.src;
-          this.$store.state.orders.push(this.order);
+          // this.$store.state.orders.push(this.order);
+            this.initOrder($order);
           this.$emit('close');
         }
 
       })
-    }
+    },
+      createOrder(){
+        this.initOrder($order);
+      }
   }
 
 }

@@ -5,6 +5,6 @@ export const mutations = {
     state.books.push(...payload);
   },
   [types.INIT_ORDER](state,payload){
-    state.orders.push(...payload)
+    state.orders.push(payload)
   }
 }
