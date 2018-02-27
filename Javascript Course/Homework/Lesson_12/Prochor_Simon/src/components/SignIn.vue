@@ -2,6 +2,7 @@
 
 
         <form novalidate class="md-layout" @submit.prevent="signIn">
+            <md-progress-bar md-mode="indeterminate" v-if="sending" />
             <md-field :class="getValidationClass('email')">
                 <label>Email</label>
                 <md-input type="email" name="email" v-model="form.email" required></md-input>
@@ -20,7 +21,7 @@
 
             <div class="md-layout md-gutter md-alignment-top-center">
                 <md-button class="md-raised md-primary" type="submit">Sign In</md-button>
-                <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
             </div>
 
 
@@ -37,7 +38,7 @@
 		maxLength
 	} from 'vuelidate/lib/validators';
 
-    import {firebaseApp} from "../firebaseApp";
+    import {firebaseApp  } from "../firebaseApp";
 
     export default {
         name: 'SignIn',
@@ -93,6 +94,9 @@
 			            this.$emit('close');
 			            this.sending = false;
 			            this.error = '';
+
+                        this.$store.dispatch('setCart');
+
 		            })
 			            .catch(error => {
 				            this.sending = false;

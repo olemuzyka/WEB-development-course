@@ -105,12 +105,14 @@
         <md-button class="md-primary" @click="showDialog = false" >Close</md-button>
       </md-dialog-actions>
     </md-dialog>
+
+    <md-snackbar :md-active.sync="userLogOut">The user was log out with success!</md-snackbar>
   </div>
 </template>
 
 
 <script>
-    import { firebaseApp, booksRef } from "./firebaseApp";
+    import { firebaseApp } from "./firebaseApp";
 
     import SignIn from "./components/SignIn";
     import SignUp from "./components/SignUp";
@@ -120,6 +122,7 @@
     export default {
         name: 'GoogleBooks',
         data: () => ({
+            userLogOut: false,
             showDialog: false,
             menuVisible: false,
             selectedBooks: null,
@@ -136,6 +139,7 @@
             signOut(){
                 this.$store.dispatch('signOut')
                 firebaseApp.auth().signOut();
+                this.userLogOut = true;
             },
             toggleMenu () {
                 this.menuVisible = !this.menuVisible
@@ -146,19 +150,7 @@
 	        SignUp,
         },
 	    mounted() {
-		    booksRef.on('value', snap=>{
-			    let books = [];
-			    snap.forEach(
-				    event => {
-					    books.push({
-                            key: event.key,
-                            ...event.val()
-					    })
-				    }
-			    );
-
-			    this.$store.dispatch('setCart', books);
-		    })
+            this.$store.dispatch('setCart');
 	    }
 
     }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="md-layout md-gutter" v-if="$store.state.cart.length">
-            <div class="md-layout-item md-layout-item md-small-size-50 md-medium-size-30 md-size-20" v-for="(element, index) in $store.state.cart">
+            <div class="md-layout-item md-layout-item md-small-size-50 md-medium-size-30 md-size-30" v-for="(element, index) in $store.state.cart">
                 <Card :book="element"
                       :incart="true"
                       :index="index"
@@ -38,6 +38,7 @@
                 firebaseApp.auth().signOut();
             }
         },
+
         components: {
             Card,
         },

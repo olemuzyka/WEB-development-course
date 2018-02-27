@@ -1,9 +1,23 @@
 import * as types from './mutation-types';
 
-import Vue from 'vue'
+import Vue from 'vue';
+import { booksRef  } from "../firebaseApp";
 
-export const setCart = ({commit}, books_payload)=>{
-    commit(types.SET_CART, books_payload)
+export const setCart = ({commit})=>{
+
+    booksRef.on('value', snap=>{
+        let books = [];
+        snap.forEach(
+            event => {
+                books.push({
+                    key: event.key,
+                    ...event.val()
+                })
+            }
+        );
+        commit(types.SET_CART, books);
+
+    })
 };
 
 export const searchResult = ({commit}, q)=>{

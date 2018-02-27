@@ -4,12 +4,13 @@
             <md-dialog-title>{{ book.title }}</md-dialog-title>
 
             <md-tabs md-dynamic-height>
+
                 <md-tab md-label="Description">{{book.description}}</md-tab>
 
                 <md-tab md-label="Order">
                     <div v-if="!Object.keys($store.state.user).length">
                         <h3>You are not registered User. Please login</h3>
-                        <md-steppers md-vertical>
+                        <md-steppers >
                             <md-step id="first" md-label="Sign In" >
                                 <SignIn/>
                             </md-step>
@@ -21,6 +22,7 @@
                     </div>
 
                     <form v-if="Object.keys($store.state.user).length" novalidate class="md-layout" @submit.prevent="validateUser">
+                        <md-progress-bar md-mode="indeterminate" v-if="sending" />
                         <div class="md-layout-item">
 
                             <div>
@@ -67,7 +69,7 @@
 
                             </div>
 
-                            <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
 
                             <div>
                                 <md-button type="submit" class="md-primary" :disabled="sending">Add to Cart</md-button>

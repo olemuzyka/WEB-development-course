@@ -28,7 +28,7 @@ Vue.use(VInputmask);
 Vue.use(VueRouter);
 
 
-import store from './store'
+import store from './store';
 
 const router = new VueRouter({
     mode: 'history',
@@ -73,6 +73,7 @@ firebaseApp.auth().onAuthStateChanged(function (user) {
     if (user) {
         store.dispatch('signIn', user);
         //router.push('/')
+
     } else {
         if(router.history.current.name == 'Cart'){
             router.replace('/')

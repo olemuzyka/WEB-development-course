@@ -1,5 +1,6 @@
 <template>
     <form novalidate class="md-layout" @submit.prevent="signUp">
+        <md-progress-bar md-mode="indeterminate" v-if="sending" />
         <md-field :class="getValidationClass('email')">
             <label>Email</label>
             <md-input type="email" name="email" v-model="form.email" required></md-input>
@@ -18,7 +19,6 @@
 
         <div class="md-layout md-gutter md-alignment-top-center">
             <md-button class="md-raised md-primary" type="submit">Sign Up</md-button>
-            <md-progress-bar md-mode="indeterminate" v-if="sending" />
         </div>
 
 
