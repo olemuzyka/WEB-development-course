@@ -12,7 +12,7 @@ function isEqual(array1, array2) {
     for (var j = 1; j < missing.length; j++) {
       if (missing[j - 1].reverse()[j - 1] === missing[j][j - 1] &&
           missing[j - 1][j] === missing[j][j]) {
-        return true;
+          return true;
       }
     }
   }
