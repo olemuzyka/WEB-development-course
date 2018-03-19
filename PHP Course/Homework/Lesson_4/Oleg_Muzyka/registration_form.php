@@ -78,7 +78,7 @@ if (!empty($name) && !empty($secondName) && !empty($email) && !empty($ticket)){
             }, // end of messages
             submitHandler: function() {
             	$.ajax({
-            		url: "index.php",
+            		url: "registration_form.php",
             		type: "POST",
             		data: $("#registration").serialize(),
             		success: function(data) {
